@@ -330,7 +330,6 @@ export default function Xiao6Calculate({ onClose, baseInfo }) {
         bodyStyle={{
           borderTopLeftRadius: "8px",
           borderTopRightRadius: "8px",
-          minHeight: "40vh",
         }}
       >
         <Image src={adImage} />
