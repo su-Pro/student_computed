@@ -239,8 +239,6 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
       const eightHundredMeterBonus =
         calculateEightHundredMeterBonus(eightHundredMeter);
       setEightHundredMeterBonus(eightHundredMeterBonus);
-
-      console.log("eightHundredMeterBonus", eightHundredMeterBonus);
     } else {
       setScore((prev) => ({
         ...prev,
@@ -425,14 +423,14 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
           <Input type="number" placeholder="单位千克" />
         </Form.Item>
         {curScore?.bmi && (
-          <span className={scoreSpanStyle}>BMI 单项成绩: {curScore.bmi}</span>
+          <span className={scoreSpanStyle}>单项成绩: {curScore.bmi}</span>
         )}
         <Form.Item name="lungCapacity" label="肺活量">
           <Input type="number" placeholder="单位毫升" />
         </Form.Item>
         {curScore?.lungCapacity !== undefined && (
           <span className={scoreSpanStyle}>
-            肺活量 单项成绩: {curScore.lungCapacity}
+            单项成绩: {curScore.lungCapacity}
           </span>
         )}
         <Form.Item name="fiftyMeter" label="50米">
@@ -440,7 +438,7 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
         </Form.Item>
         {curScore?.fiftyMeter !== undefined && (
           <span className={scoreSpanStyle}>
-            50米 单项成绩: {curScore.fiftyMeter}
+            单项成绩: {curScore.fiftyMeter}
           </span>
         )}
         {
@@ -452,7 +450,7 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
               </Form.Item>
               {curScore?.oneThousandMeter !== undefined && (
                 <span className={scoreSpanStyle}>
-                  1000米 单项成绩: {curScore.oneThousandMeter}
+                  单项成绩: {curScore.oneThousandMeter}
                 </span>
               )}
               {
@@ -471,7 +469,7 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
               </Form.Item>
               {curScore?.eightHundredMeter !== undefined && (
                 <span className={scoreSpanStyle}>
-                  8000米 单项成绩: {curScore.eightHundredMeter}
+                  单项成绩: {curScore.eightHundredMeter}
                 </span>
               )}
               {
@@ -494,7 +492,7 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
               </Form.Item>
               {curScore?.pullUp !== undefined && (
                 <span className={scoreSpanStyle}>
-                  引体向上 单项成绩: {curScore.pullUp}
+                  单项成绩: {curScore.pullUp}
                 </span>
               )}
               {
@@ -513,7 +511,7 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
               </Form.Item>
               {curScore?.sitUps !== undefined && (
                 <span className={scoreSpanStyle}>
-                  仰卧起坐 单项成绩: {curScore.sitUps}
+                  单项成绩: {curScore.sitUps}
                 </span>
               )}
               {
@@ -532,7 +530,7 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
         </Form.Item>
         {curScore?.sitAndReach !== undefined && (
           <span className={scoreSpanStyle}>
-            坐位体前屈 单项成绩: {curScore.sitAndReach}
+            单项成绩: {curScore.sitAndReach}
           </span>
         )}
         <Form.Item name="standingLongJump" label="立定跳远">
@@ -540,7 +538,7 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
         </Form.Item>
         {curScore?.standingLongJump !== undefined && (
           <span className={scoreSpanStyle}>
-            立定跳远 单项成绩: {curScore.standingLongJump}
+            单项成绩: {curScore.standingLongJump}
           </span>
         )}
       </Form>

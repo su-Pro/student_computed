@@ -328,14 +328,18 @@ export function calculateFiftyMeterScore(time, isBoy) {
   }
   return 0;
 }
-export function calculateEightHundredMeterScore(time) {
-  const standards = girlScoreStandards.eightHundredMeter; // 假设使用了女生的1000米标准，实际应该是800米的标准
+export function calculateEightHundredMeterScore(timeStr) {
+  // 将用户输入的时间字符串转换为秒数
+  const [minute, second] = timeStr.split(".");
+  const time = parseInt(minute) * 60 + parseInt(second);
+
+  const standards = girlScoreStandards.eightHundredMeter;
   for (const standard of standards) {
     if (time <= standard.max) {
       return standard.score;
     }
   }
-  return 0; // 如果没有达到最低标准，返回0分
+  return 0;
 }
 
 /**
@@ -350,8 +354,8 @@ export function calculateOneThousandMeterScore(timeStr, isBoy) {
   const time = parseInt(minute) * 60 + parseInt(second);
 
   const standards = isBoy
-    ? boyScoreStandards.thousandMeter
-    : girlScoreStandards.thousandMeter;
+    ? boyScoreStandards.oneThousandMeter
+    : girlScoreStandards.eightHundredMeter;
   for (const standard of standards) {
     if (time <= standard.max) {
       return standard.score;
@@ -361,9 +365,7 @@ export function calculateOneThousandMeterScore(timeStr, isBoy) {
 }
 
 export function calculatePullUpScore(count, isBoy) {
-  const standards = isBoy
-    ? boyScoreStandards.pullUps
-    : girlScoreStandards.pullUps;
+  const standards = boyScoreStandards.pullUps;
   for (const standard of standards) {
     if (count >= standard.min) {
       return standard.score;
