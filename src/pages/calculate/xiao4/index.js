@@ -88,7 +88,6 @@ export default function Xiao6Calculate({ onClose, baseInfo }) {
       fiftyMeter,
       sitUps,
       jumpRope,
-      eightTimesFiftyMeter,
       // 体前屈
       sitAndReach,
     } = values;
