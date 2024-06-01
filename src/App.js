@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 import "./App.css";
-import Result from "./pages/result/index";
-import Calculate from "./pages/calculate/index";
+import Chu2Calculate from "./pages/calculate/chu2/index";
+import Xiao4Calculate from "./pages/calculate/xiao4";
+import Xiao6Calculate from "./pages/calculate/xiao4";
 import { gradeOptions, genderOptions } from "./config";
 import { Button, Form, Selector } from "antd-mobile";
 
 const App = () => {
-  const [showResult, setShowResult] = useState(false);
   const [showCalculate, setShowCalculate] = useState(false);
   // 最终得分成绩 score
-  const [score, setScore] = useState(0);
   const [form, setForm] = useState({ grade: ["8"], gender: ["male"] });
-
-  const handleFinish = (result) => {
-    setScore(result);
-    setShowResult(true);
-    setShowCalculate(false);
-  };
 
   const handleFormChange = (name, value) => {
     console.log(name, value);
@@ -31,9 +24,26 @@ const App = () => {
     }
   };
 
+  // 计算不同年级应该展示哪个计算Form
+  const CalculateForm = React.useMemo(() => {
+    const grade = form.grade[0];
+
+    if (grade === "8") {
+      return Chu2Calculate;
+    }
+
+    if (grade === "4") {
+      return Xiao4Calculate;
+    }
+
+    if (grade === "6") {
+      return Xiao6Calculate;
+    }
+  }, [form.grade]);
+
   return (
     <div>
-      {!showResult && !showCalculate ? (
+      {!showCalculate ? (
         <Form mode="card">
           <Form.Header>请选择要查询的学生信息</Form.Header>
           <Form.Item label="年级">
@@ -56,24 +66,14 @@ const App = () => {
             填写成绩
           </Button>
         </Form>
-      ) : showCalculate ? (
-        <Calculate
-          onFinish={handleFinish}
+      ) : (
+        <CalculateForm
           onClose={() => {
-            setShowResult(false);
             setShowCalculate(false);
           }}
           baseInfo={{
             grade: form.grade[0],
             gender: form.gender[0],
-          }}
-        />
-      ) : (
-        <Result
-          result={score}
-          onClose={() => {
-            setShowCalculate(false);
-            setShowResult(false);
           }}
         />
       )}
