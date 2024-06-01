@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Chu2Calculate from "./pages/calculate/chu2/index";
 import Xiao4Calculate from "./pages/calculate/xiao4";
-import Xiao6Calculate from "./pages/calculate/xiao4";
+import Xiao6Calculate from "./pages/calculate/xiao6";
 import { gradeOptions, genderOptions } from "./config";
 import { Button, Form, Selector } from "antd-mobile";
 

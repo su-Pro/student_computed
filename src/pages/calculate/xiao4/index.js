@@ -184,7 +184,7 @@ export default function Xiao4Calculate({ onClose, baseInfo }) {
           } ${
             genderOptions.find((option) => option.value === gender)?.label ||
             "未知性别"
-          }学生 体测总成绩 ${totalScore}`}</span>
+          }学生 体测总成绩 ${Math.round(totalScore)}`}</span>
         </Form.Header>
         <Form.Item name="height" label="身高">
           <Input type="number" placeholder="单位厘米" />
