@@ -184,7 +184,7 @@ export default function Xiao6Calculate({ onClose, baseInfo }) {
 		const jumpRopeScore = jumpRope ? jumpRope * 0.2 : 0
 		const sitUpsScore = sitUps ? sitUps * 0.1 : 0
 
-		return (
+		const suma =
 			lungCapacityScore +
 			bmiScore +
 			fiftyMeterScore +
@@ -192,7 +192,34 @@ export default function Xiao6Calculate({ onClose, baseInfo }) {
 			jumpRopeScore +
 			sitUpsScore +
 			jumpRopeExtraScore
-		)
+
+		// 根据得出来的分，判断在哪个区间
+		// 80.0 - 100 10分
+		// 75.0 - 79.9  9.5分
+		// 70.0 - 74.9  8分
+		// 65.0 - 69.9  7.5分
+		// 60.0 - 64.9  7分
+		// 0 - 59.9  5.5分
+
+		if (suma >= 80) {
+			return 10
+		}
+		if (suma >= 75) {
+			return 9.5
+		}
+		if (suma >= 70) {
+			return 8
+		}
+		if (suma >= 65) {
+			return 7.5
+		}
+		if (suma >= 60) {
+			return 7
+		}
+		if (suma >= 0) {
+			return 5.5
+		}
+		return 0
 	}, [curScore, jumpRopeExtraScore])
 
 	return (
@@ -220,9 +247,9 @@ export default function Xiao6Calculate({ onClose, baseInfo }) {
 				<Form.Header>
 					<span className="text-lg font-bold text-black">{`${
 						gradeOptions.find(option => option.value === grade)?.label || '未知年级'
-					} ${genderOptions.find(option => option.value === gender)?.label || '未知性别'}学生 体测总成绩 ${Math.round(
-						totalScore
-					)}`}</span>
+					} ${
+						genderOptions.find(option => option.value === gender)?.label || '未知性别'
+					}学生 体测总成绩 ${totalScore}`}</span>
 				</Form.Header>
 				<Form.Item name="height" label="身高">
 					<Input type="number" placeholder="单位厘米" />
