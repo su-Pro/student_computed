@@ -22,7 +22,7 @@ const boyScoreStandards = {
     { score: 10, min: 1050, max: 1139 },
   ],
   fiftyMeter: [
-    { score: 100, max: 8.2, min: 0 },
+    { score: 100, max: 8.2, min: 0.1 },
     { score: 95, min: 8.21, max: 8.3 },
     { score: 90, min: 8.31, max: 8.4 },
     { score: 85, min: 8.41, max: 8.5 },
@@ -117,7 +117,7 @@ const boyScoreStandards = {
     { score: 10, min: 9, max: 10 },
   ],
   eightTimesFiftyMeter: [
-    { score: 100, max: 90, min: 0 }, // 转换为秒 1'30" -> 90
+    { score: 100, max: 90, min: 1 }, // 转换为秒 1'30" -> 90
     { score: 95, min: 91, max: 93 }, // 1'33" -> 93
     { score: 90, min: 94, max: 96 }, // 1'36" -> 96
     { score: 85, min: 97, max: 99 }, // 1'39" -> 99
@@ -164,7 +164,7 @@ const girlScoreStandards = {
     { score: 10, min: 1050, max: 1079 },
   ],
   fiftyMeter: [
-    { score: 100, max: 8.2, min: 0 },
+    { score: 100, max: 8.2, min: 0.1 },
     { score: 95, min: 8.3, max: 8.3 },
     { score: 90, min: 8.4, max: 8.4 },
     { score: 85, min: 8.5, max: 8.7 },
@@ -259,7 +259,7 @@ const girlScoreStandards = {
     { score: 10, min: 9, max: 10 },
   ],
   eightTimesFiftyMeter: [
-    { score: 100, max: 97, min: 0 }, // 1'37" -> 97 seconds
+    { score: 100, max: 97, min: 1 }, // 1'37" -> 97 seconds
     { score: 95, min: 98, max: 100 }, // 1'40" -> 100 seconds
     { score: 90, min: 101, max: 103 }, // 1'43" -> 103 seconds
     { score: 85, min: 104, max: 106 }, // 1'46" -> 106 seconds

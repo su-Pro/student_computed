@@ -11,6 +11,7 @@ import {
   calculateSitAndReachScore,
 } from "./computed";
 import adImage from "../../../assets/ad.jpg";
+import { getScore } from "../tools.js";
 
 // 成绩span对应的styles
 const scoreSpanStyle = "text-sm ml-4 text-gray-500";
@@ -228,35 +229,7 @@ export default function Xiao6Calculate({ onClose, baseInfo }) {
       eightTimesFiftyMeterScore +
       jumpRopeExtraScore;
 
-    console.log("suma is:", suma);
-
-    // 根据得出来的分，判断在哪个区间
-    // 80.0 - 100 10分
-    // 75.0 - 79.9  9.5分
-    // 70.0 - 74.9  8分
-    // 65.0 - 69.9  7.5分
-    // 60.0 - 64.9  7分
-    // 0 - 59.9  5.5分
-
-    if (suma >= 80) {
-      return 10;
-    }
-    if (suma >= 75) {
-      return 8.5;
-    }
-    if (suma >= 70) {
-      return 8;
-    }
-    if (suma >= 65) {
-      return 7.5;
-    }
-    if (suma >= 60) {
-      return 7;
-    }
-    if (suma >= 0) {
-      return 5.5;
-    }
-    return 0;
+    return getScore(suma);
   }, [curScore, jumpRopeExtraScore]);
 
   return (
