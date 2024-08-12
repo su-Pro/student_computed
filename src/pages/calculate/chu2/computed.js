@@ -373,9 +373,14 @@ export function calculateStandingLongJumpScore(distance, isBoy) {
 
 export function calculateBMIScore(height, weight, isBoy) {
   // 计算公式使用的是千克（kg）和厘米（cm）作为单位
-  const bmi = weight / (height / 100) ** 2; // 计算 BMI
+  let bmi = weight / (height / 100) ** 2; // 计算 BMI
+
+  // bmi 要四舍五入，保存小数点后1位
+  bmi = Math.round(bmi * 10) / 10;
+
   const scoreStandards = isBoy ? boyScoreStandards.bmi : girlScoreStandards.bmi; // 选择适当的性别标准表
 
+  console.log("bmi", bmi);
   // 遍历标准表，查找对应的得分区间
   for (let standard of scoreStandards) {
     if (
@@ -386,6 +391,7 @@ export function calculateBMIScore(height, weight, isBoy) {
     }
   }
 
+  console.log("没有");
   // 如果没有符合的得分区间，返回未找到得分
   return undefined;
 }

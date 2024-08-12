@@ -147,6 +147,9 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
     sitUps: undefined,
     eightTimesFiftyMeter: undefined,
   });
+  // 加权赋分前的总分
+  const [prevTotalScore, setPrevTotalScore] = useState(0);
+
   const [showConsultation, setShowConsultation] = useState(false);
 
   // 引体向上，超出满分的值
@@ -385,6 +388,9 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
     // 60.0 - 64.9  7分
     // 0 - 59.9  5.5分
 
+    // 需要把suma四舍五入再保存
+    setPrevTotalScore(suma);
+
     return getScore(suma);
   }, [
     curScore,
@@ -427,7 +433,7 @@ export default function Chu2Calculate({ onClose, baseInfo }) {
           } ${
             genderOptions.find((option) => option.value === gender)?.label ||
             "未知性别"
-          }学生 体测总成绩 ${totalScore}`}</span>
+          }学生体测 总成绩: ${prevTotalScore}，加权赋分后: ${totalScore}`}</span>
         </Form.Header>
         <Form.Item name="height" label="身高">
           <Input type="number" placeholder="单位厘米" />
