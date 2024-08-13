@@ -338,8 +338,7 @@ export function calculateSitUpsScore(count, isBoy) {
 
 export function calculateEightTimesFiftyMeterScore(timeStr, isBoy) {
   const [minute, second] = timeStr.split(".");
-  const time = parseInt(minute) * 60 + parseInt(second);
-
+  const time = parseInt(minute || "0") * 60 + parseInt(second || "0");
   const standards = isBoy
     ? boyScoreStandards.eightTimesFiftyMeter
     : girlScoreStandards.eightTimesFiftyMeter;
