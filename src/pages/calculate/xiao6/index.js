@@ -77,6 +77,8 @@ export default function Xiao6Calculate({ onClose, baseInfo }) {
     sitUps: undefined,
     eightTimesFiftyMeter: undefined,
   });
+  // 加权赋分前的总分
+  const [prevTotalScore, setPrevTotalScore] = useState(0);
   const [showConsultation, setShowConsultation] = useState(false);
   // 跳绳额外加分
   const [jumpRopeExtraScore, setJumpRopeExtraScore] = useState(0);
@@ -229,6 +231,8 @@ export default function Xiao6Calculate({ onClose, baseInfo }) {
       eightTimesFiftyMeterScore +
       jumpRopeExtraScore;
 
+    setPrevTotalScore(suma);
+
     return getScore(suma);
   }, [curScore, jumpRopeExtraScore]);
 
@@ -265,7 +269,9 @@ export default function Xiao6Calculate({ onClose, baseInfo }) {
           } ${
             genderOptions.find((option) => option.value === gender)?.label ||
             "未知性别"
-          }学生 体测总成绩 ${totalScore}`}</span>
+          }学生体测 总成绩: ${
+            Math.round(prevTotalScore * 10) / 10
+          }，加权赋分后: ${totalScore}`}</span>
         </Form.Header>
         <Form.Item name="height" label="身高">
           <Input type="number" placeholder="单位厘米" />
