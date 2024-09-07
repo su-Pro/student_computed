@@ -19,8 +19,8 @@ const scoreSpanStyle = "text-sm ml-4 text-gray-500";
 const extraScoreSpanStyle = "text-sm ml-4 text-rose-600";
 
 // 一分钟跳绳满分次数：166次
-const jumpRopeFullScoreBoy = 157;
-const jumpRopeFullScoreGirl = 166;
+const jumpRopeFullScoreBoy = 137;
+const jumpRopeFullScoreGirl = 149;
 
 // 加分映射表，每多跳一定次数，对应的加分值
 const jumpRopeBonusMapping = [
